@@ -15,15 +15,6 @@
   </div>
   <iframe id="output"></iframe>
 
-  <script>
-    function runCode() {
-      const html = document.getElementById("htmlCode").value;
-      const css = "<style>" + document.getElementById("cssCode").value + "</style>";
-      const output = document.getElementById("output");
-      output.srcdoc = html + css;
-    }
-    // Auto run on load
-    runCode();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
