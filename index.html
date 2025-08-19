@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML & CSS Compiler</title>
+  <style>
+    body {
+        background-color: #383838;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+    h3{
+        color: green;
+        font-size: 35px;
+    }
+    .editor {
+        background-color: #383838;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      border-right: 2px solid #ccc;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    textarea {
+        background-color: grey;
+      flex: 1;
+      margin: 5px 0;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+    iframe {
+      width: 50%;
+      height: 100%;
+      border: none;
+    }
+    button {
+      padding: 8px;
+      background: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="editor">
+    <h3>HTML Code</h3>
+    <textarea id="htmlCode"><h1>Hello World!</h1></textarea>
+    <h3>CSS Code</h3>
+    <textarea id="cssCode">h1 { color: red; text-align: center; }</textarea>
+    <button onclick="runCode()">▶ Run Code</button>
+  </div>
+  <iframe id="output"></iframe>
+
+  <script>
+    function runCode() {
+      const html = document.getElementById("htmlCode").value;
+      const css = "<style>" + document.getElementById("cssCode").value + "</style>";
+      const output = document.getElementById("output");
+      output.srcdoc = html + css;
+    }
+    // Auto run on load
+    runCode();
+  </script>
+</body>
+</html>
